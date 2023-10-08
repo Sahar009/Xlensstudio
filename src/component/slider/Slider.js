@@ -1,6 +1,7 @@
 import  {useState, useEffect} from 'react'
 import {AiOutlineArrowLeft, AiOutlineArrowRight} from 'react-icons/ai'
 import  {sliderData} from './slider-data';
+import {FaPlus} from 'react-icons/fa';
 import './slider.scss'
 const Slider = () => {
     const[currentSlide, setCurrentSlide]=useState(0)
@@ -37,11 +38,11 @@ const Slider = () => {
     
     <div className='slider'>
       
-        <AiOutlineArrowLeft onClick={prevSlide} className='arrow prev'/>
-        <AiOutlineArrowRight onClick={nextSlide} className='arrow next'/>
+       
     {sliderData.map((slide,index) =>{
-        const {image, heading, desc}= slide
+        const {image, heading, desc, location}= slide
         return(
+            <>
             <div key={index} className={index === currentSlide ? 'slide current' : 'slide'}>
                     {index === currentSlide && (
                         <>
@@ -55,18 +56,26 @@ const Slider = () => {
                             <h2>{heading}</h2>
                             <p>{desc}</p>
                             
-                            <a href='#product' className='--btn --btn-primary'>
-                                see projects
+                            <a href='#product' >
+                             <FaPlus size={10} />   see projects
                             </a>
                         </div>
                         </>
                     )} 
+
             </div>
+             <div className='slider-content2'>
+             <AiOutlineArrowLeft onClick={prevSlide} className='arrow prev'/>
+                 <AiOutlineArrowRight onClick={nextSlide} className='arrow next'/>
+         <h2>{location}</h2>
+             </div>
+             </>
 
 
         )
     }
     )}
+   
     </div>
     
   )

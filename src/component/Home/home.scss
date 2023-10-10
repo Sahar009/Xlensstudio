@@ -1,4 +1,220 @@
 .home{
-    height: 200vh;
+    height:180vh;
     background: #151515;
+    margin-top: 0;
+    .clients{
+        padding-top: 5rem;
+
+       text-align: center;
+       h1, h2, h3,h4, p{
+        color: #fff;
+       }
+       h3{
+        font-weight: 400;
+       }
+       h4{
+        margin: 1.5rem;
+       }
+       h1{
+        font-weight: 600;
+        font-size: 5rem;
+       }
+       img{
+        width:400px;
+        margin: 3rem;
+       
+       }
+      
+    }
+    .client-numbers{
+        display: flex;
+        justify-content: center;
+    }
+    .client-projects{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15rem;
+        margin-bottom: 5rem;
+       
+       }
+       .client-image{
+        position: absolute;
+        right: 10%;
+       }
+       .text{
+        max-width: 505px;
+      
+       }
+       p{
+        font-size: 15px;
+        font-weight: 300;
+        line-height: 1.5;
+       }
+       .count-animation {
+        .count-up {
+            animation: count-up-animation 2s ease-in-out;
+        }
+    }
+    .project{
+        margin-top: 15rem;
+        height: 70vh;
+        background: #151515;
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .project::before{
+        content: 'Projects';
+        position: absolute;
+        top: 0;
+        color: #fff;
+        font-family: 'Alegreya Sans', sans-serif;
+        font-size: 5rem;
+        font-weight: 700;
+        left: 10rem;
+        background: transparent;
+    }
+    .project-left{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        ul{
+            display: block;
+        }
+        li{
+            line-height: 2;
+            font-size: 1.5rem;
+
+        }
+    }
+    .project-right{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .inner{
+           
+            border-radius: 1rem;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit:fill
+        }
+    }
+    .iconStyle{
+        margin-right: 1rem;
+    }
+    .service{
+        margin-top: 15rem;
+        height: 70vh;
+        background: rgba(0, 0, 0, 0.9);
+        position: relative;
+    }
+    .service::before{
+        content: 'Services';
+        position: absolute;
+        top: 0;
+        color: #fff;
+        font-family: 'Alegreya Sans', sans-serif;
+        font-size: 5rem;
+        font-weight: 700;
+        left: 10rem;
+        background: transparent;
+    }
+    .service-nav{
+       
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        margin-top: 3rem;
+    }
+    ul{
+        display:flex
+    }
+    li{
+        color: #fff;
+        font-size: 1.5rem;
+        font-weight: 500;
+        list-style: none;
+        margin: 1rem;
+    }
+    a{
+        
+        cursor: pointer;
+        color: #fff;
+        position: relative;
+    }
+    a::after:active{
+        position: absolute;
+        bottom: 0;
+        content:'';
+        height: 2px;
+        background:#9B934A; 
+        width: 100%;
+        left: 0;
+        margin-top: 1.5rem;
+    }
+    .interior,
+.exterior,
+.product,
+.visualization,
+.floor-plans {
+    display: none;
+}
+.interior.active {
+    display: block;
+    text-align: center;
+    /* Add additional styles for the active interior section */
+height: 310px;
+}
+
+
+.exterior.active {
+    display: block;
+    /* Add additional styles for the active exterior section */
+}
+.serviceImage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem;
+    height: 300px;
+    
+}
+.serviceText{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin: 1rem;
+
+h3 {
+    color: #fff;
+    font-size: 2rem;
+    span{
+        color: #ffffffb3;
+        
+        margin-right: 2rem;
+        font-weight: 200;
+    }
+}
+}
+
+// .service-imageSection
+    
+    
+    
+    
+    @keyframes count-up-animation {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 }

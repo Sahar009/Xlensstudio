@@ -40,7 +40,7 @@ header {
         }
   
         li {
-          margin: 0 5px;
+          margin: 0 1rem;
           a {
             color: #fff;
             &:hover {
@@ -54,15 +54,15 @@ header {
     .header-right {
       display: flex;
   
-      .cart a {
+      a {
         display: flex;
         color: #fff;
         position: relative;
         &:hover {
-          color: var(--color-dark);
+          color:var(--text-color);
         }
         &.active {
-          color: var(--color-danger);
+          color: var(--text-color);
         }
         p {
           position: absolute;
@@ -191,7 +191,7 @@ header {
   
   .active {
     position: relative;
-    color: var(--color-danger);
+    color: var(--color-home);
   }
   
   .active::after {

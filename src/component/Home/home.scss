@@ -103,11 +103,21 @@
             object-fit:fill
         }
     }
+    .div2{
+        display: none;
+    }
+    .active{
+       color: var(--text-color);
+       a{
+        color:var(--text-color);
+       }
+    }
     .iconStyle{
         margin-right: 1rem;
     }
     .service{
         margin-top: 15rem;
+        margin-bottom: 15rem;
         height: 70vh;
         background: rgba(0, 0, 0, 0.9);
         position: relative;
@@ -151,7 +161,7 @@
         bottom: 0;
         content:'';
         height: 2px;
-        background:#9B934A; 
+        background:var(--color-home); 
         width: 100%;
         left: 0;
         margin-top: 1.5rem;

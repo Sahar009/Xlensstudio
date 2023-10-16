@@ -6,6 +6,7 @@
   --font-family: 'Alegreya Sans', sans-serif;
   --dark-blue: #0b121d;
   --light-blue: #1f8aee;
+  --text-color:#F8FD00;
 
   --color-white: #fff;
   --color-dark: #4b4646;
@@ -18,7 +19,7 @@
 
   --color-primary: #194c82;
   --color-success: #28a745;
-  --color-danger: #9B934A;
+  --color-home: #9B934A;
   
 
 }

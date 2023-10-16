@@ -27,7 +27,7 @@ const  Header = () => {
             <div className={styles.header}>
             <div className={styles.logo}>
                 
-                <Link to='#' >               
+                <Link to='/' >               
               
                    <img src={logo} alt='logo'/>
            
@@ -56,23 +56,23 @@ const  Header = () => {
               
               
               <li>
-                <NavLink to="/" className={activeLink} on>
+                <NavLink to="/project" className={activeLink} on>
                     {/* classname={(state)=>console.log(state)} */}
                  Project
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/contact" className={activeLink} >
+                <NavLink to="/services" className={activeLink} >
                   Services
                 </NavLink>
               </li>
               <li>
-              <NavLink to="/login" className={activeLink} >
+              <NavLink to="/about"  className={activeLink} >
                     About us
                   </NavLink>
               </li>
               <li>
-              <NavLink to="" className={activeLink} >
+              <NavLink to="/contact" className={activeLink} >
                     Contact us
                   </NavLink>
               </li>

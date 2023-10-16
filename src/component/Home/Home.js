@@ -10,6 +10,7 @@ import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import {FiArrowRightCircle} from 'react-icons/fi'
 
 import projectRight1 from '../../assets/4 Bedroom_View 1.png'
+import { Link } from "react-router-dom";
 const Home = () =>{
     const [countProjects, setCountProjects] = useState(0);
     const [countContractors, setCountContractors] = useState(0);
@@ -48,17 +49,23 @@ const Home = () =>{
     const handleSectionClick = (section) => {
         setActiveSection(section);
     };
+
+    //section displays on click
+    const [activeDiv, setActiveDiv] = useState('div1');
+
+    const handleItemClick = (target) => {
+        setActiveDiv(target);
+    };
     return(
 
         <>
         <Slider/>
         <div className="home">
         <section className="project">
-            <div className="project-left">
+        <div className="project-left">
                 <ul>
-                    <li ><AiOutlineMinus className='iconStyle'/>3D Floor Plans </li>
-                    {/* <FiArrowRightCircle/> */}
-                    <li><AiOutlineMinus className='iconStyle'/> Interior Design</li>
+                    <li className={activeDiv === 'div1' ? 'active' : ''} onClick={() => handleItemClick('div1')}><AiOutlineMinus className='iconStyle'/><Link>3D Floor Plans</Link></li>
+                    <li className={activeDiv === 'div2' ? 'active' : ''} onClick={() => handleItemClick('div2')}><AiOutlineMinus className='iconStyle'/><Link> Interior Design</Link></li>
                     <li><AiOutlineMinus className='iconStyle'/>Landscape</li>
                     <li><AiOutlineMinus className='iconStyle'/>3D Visualization</li>
                     <li><AiOutlineMinus className='iconStyle'/>Product Design</li>
@@ -66,13 +73,16 @@ const Home = () =>{
             </div>
             <div className="project-right">
                 <h5><AiOutlinePlus  className='iconStyle' /> All projects</h5>
-                <div className="inner">
-                <img src={projectRight1}/>
-                </div>
-                <div className="inner">
-                <img src={projectRight1}/>
-                </div>
-           
+                {activeDiv === 'div1' && (
+                    <div className={`inner div1 ${activeDiv === 'div1' ? 'active' : ''}`}>
+                        <img src={projectRight1} />
+                    </div>
+                )}
+                {activeDiv === 'div2' && (
+                    <div className={`inner div2 ${activeDiv === 'div2' ? 'active' : ''}`}>
+                        {/* Content for div 2 */}
+                    </div>
+                )}
             </div>
            
             
@@ -145,10 +155,11 @@ const Home = () =>{
             </div>
             
         </section>
-
-        </div>
-
         <Footer/>
+        
+        </div>
+        
+        
         </>
     );
 

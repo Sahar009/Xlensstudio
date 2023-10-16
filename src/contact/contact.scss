@@ -1,0 +1,71 @@
+.contact{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+    .form-section{
+       
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+    
+    }
+    
+    input, textarea {
+        width: 100%;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        background: transparent;
+        border: none;
+        border-bottom: 3px solid #fff;
+        resize: none;
+        color: var(--color-white);
+       
+    }
+    input::placeholder, textarea::placeholder{
+        color: #fff;
+        }
+        input:focus, textarea:focus{
+            // border: none;
+            border-bottom: 2px solid #F8FD00;
+            outline: none;
+        }
+.icon-section{
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+.icons{
+    gap:3rem;
+    display: flex;
+    margin: 2rem;
+.icon{
+    color: #fff;
+    transition: 15ms ease;
+    
+}
+.icon:hover{
+    transform: translateY(-2px);
+    color: #F8FD00;
+}
+
+}
+.email{
+    display: flex;
+    color:#fff;
+    margin: 2rem;
+    gap: 1rem;
+    h3, a{
+        font-size: 1.3rem;
+        color: #fff;
+    }
+    
+}
+}
+
+    
+}

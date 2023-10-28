@@ -12,7 +12,9 @@
         display: flex;
         flex-direction: column;
         gap: 1.2rem;
-    
+    .btn-contact:hover{
+        background: var(--color-home);
+    }
     }
     
     input, textarea {

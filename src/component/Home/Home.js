@@ -8,8 +8,14 @@ import interior from '../../assets/Group 12.png'
 import Footer from "../footer/Footer";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import {FiArrowRightCircle} from 'react-icons/fi'
+import backgroundleft from '../../assets/depositphotos_78505366-stock-illustration-interior-drawing 1.png'
 
 import projectRight1 from '../../assets/4 Bedroom_View 1.png'
+import projectRight2 from '../../assets/Materials for Websites/INTERIOR PROJECTS/Lounge_01.jpg';
+import projectRight3 from '../../assets/Materials for Websites/GLATT ESTATE/RENDER/ARIEL VIEW b.jpg';
+import projectRight4 from '../../assets/Materials for Websites/ITUNU/Images/COm_street view004.jpg';
+// import projectRight2 from '../../assets/Materials for Websites/INTERIOR PROJECTS/Lounge_01.jpg'
+
 import { Link } from "react-router-dom";
 const Home = () =>{
     const [countProjects, setCountProjects] = useState(0);
@@ -63,24 +69,43 @@ const Home = () =>{
         <div className="home">
         <section className="project">
         <div className="project-left">
+            <img src={backgroundleft}/>
                 <ul>
                     <li className={activeDiv === 'div1' ? 'active' : ''} onClick={() => handleItemClick('div1')}><AiOutlineMinus className='iconStyle'/><Link>3D Floor Plans</Link></li>
                     <li className={activeDiv === 'div2' ? 'active' : ''} onClick={() => handleItemClick('div2')}><AiOutlineMinus className='iconStyle'/><Link> Interior Design</Link></li>
-                    <li><AiOutlineMinus className='iconStyle'/>Landscape</li>
-                    <li><AiOutlineMinus className='iconStyle'/>3D Visualization</li>
-                    <li><AiOutlineMinus className='iconStyle'/>Product Design</li>
+                    <li className={activeDiv === 'div3' ? 'active' : ''} onClick={() => handleItemClick('div3')}><AiOutlineMinus className='iconStyle'/><Link>Landscape</Link></li>
+                    <li className={activeDiv === 'div4' ? 'active' : ''} onClick={() => handleItemClick('div4')}><AiOutlineMinus className='iconStyle'/><Link>3D Visualization</Link></li>
+                    <li className={activeDiv === 'div5' ? 'active' : ''} onClick={() => handleItemClick('div5')}><AiOutlineMinus className='iconStyle'/><Link>Product Design</Link></li>
                 </ul>
             </div>
             <div className="project-right">
                 <h5><AiOutlinePlus  className='iconStyle' /> All projects</h5>
                 {activeDiv === 'div1' && (
                     <div className={`inner div1 ${activeDiv === 'div1' ? 'active' : ''}`}>
-                        <img src={projectRight1} />
+                        <img  src={projectRight1} />
                     </div>
                 )}
                 {activeDiv === 'div2' && (
-                    <div className={`inner div2 ${activeDiv === 'div2' ? 'active' : ''}`}>
-                        {/* Content for div 2 */}
+                    <div className={`inner div1 ${activeDiv === 'div2' ? 'active' : ''}`}>
+                       <img src={projectRight2} />
+                    </div>
+                )}
+                 {activeDiv === 'div3' && (
+                    <div className={`inner div1 ${activeDiv === 'div3' ? 'active' : ''}`}>
+                        <img src={projectRight3} />
+                    </div>
+                )}
+                 {activeDiv === 'div4' && (
+                    <div className={`inner div1 ${activeDiv === 'div4' ? 'active' : ''}`}>
+                        <img src={projectRight4} />
+                       
+
+                       
+                    </div>
+                )}
+                 {activeDiv === 'div5' && (
+                    <div className={`inner div1 ${activeDiv === 'div5' ? 'active' : ''}`}>
+                       <img src={projectRight1} />
                     </div>
                 )}
             </div>

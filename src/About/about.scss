@@ -1,0 +1,22 @@
+.about{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 7rem;
+   
+}
+.left-about{
+  padding: 2rem;
+    img{
+        width: 100%;
+        height: 50%;
+    }
+}
+.right-about{
+  
+    padding: 2rem;
+    text-align: center;
+    h1,p{
+        color: #ffffffbf;
+    }
+}

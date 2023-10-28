@@ -1,7 +1,7 @@
 
 .slider {
     width: 100%;
-    height: 90vh;
+    height: 95vh;
     position: relative;
     overflow: hidden;
     background-color: var(--color-dark);
@@ -31,54 +31,88 @@
     .slide img {
       width: 100%;
       height: 100%;
+      object-fit: cover;
     }
   }
   
   .slide img {
-    height: 90%;
+    height: 95%;
   }
   
   .content {
     position: absolute;
     // text-align: center;
-    height: 500px;
-    top: 23rem;
+    height: 400px;
     left: 50%;
     opacity: 0;
     width: 50%;
-    // padding: 3rem;
-    display: flex;
-    justify-self: center;
-    align-items: start;
-    flex-direction: column;
-    transform: translateX(-50%);
-    // background: rgb(0, 0, 0);
+    left: 30%;
+    padding-bottom: 5rem;
+    display: block;
+    justify-self: start;
+    align-items: flex-start;
+    flex-direction: row;
+    // transform: translateX(-50%);
+    transform: translateY(-20%);
     animation: slide-up 1s ease 0.5s;
     animation-fill-mode: forwards;
     z-index: 2;
     //   visibility: hidden;
-    h2 {
-      margin-top: 2rem;
-      font-size: 4.5rem;
+    .seeProject{
+      display: flex;
+      width: 500px;
+      color: #fff;
+      z-index: 3;
+      h5{
+        color: white;
+        margin-left: 1rem;
+      }
     }
+    h2 {
+      margin-top: 1rem;
+      font-size: 4.5rem;
+      cursor: pointer;
+    }
+   
     .content-hr{
       width: 100%;
       display: flex;
-     
       padding-bottom: 5rem;
 
     }
   }
   .slider-content2{
-    width:919px;
+    width:719px;
     height:150px;
     background: #9B934A;
     position: absolute;
     bottom: 0;
     right: 0;
-    border: transparent
-
-    ;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    border: transparent;
+   .content2-inner{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .content2-icon{
+      display: block;
+    }
+    h2, h1, h3{
+      color: white;
+      font-size: 1rem;
+     
+    }
+    h3{
+      font-size: 1.5rem;
+      font-size: 500;
+    }
+    h1{
+      font-size: 2rem;
+      font-weight: 500;
+    }
+    
   }
   @keyframes slide-up {
     0% {
@@ -111,15 +145,16 @@
     opacity: 1;
   }
   .arrow {
-    border: 2.5px solid #fff;
+    border: 1px solid #fff;
     border-radius: 50%;
     background: transparent;
     color: #fff;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2rem;
+    height: 2rem;
+    margin: 1rem;
     cursor: pointer;
-    position: absolute;
-    top: 50%;
+    // position: absolute;
+    // top: 50%;
     transform: translateY(-50%);
     z-index: 2;
   }
@@ -130,17 +165,17 @@
   }
   
   .next {
-    right: 1.5rem;
+    // right: 1.5rem;
     color: #fff;
   }
   .prev {
-    left: 1.5rem;
+    // left: 1.5rem;
     color: #fff;
   }
   
   hr {
-    height: 150px;
-    margin-bottom: 1.5rem;
+    height: 120px;
+    margin-bottom: 1rem;
     background: #fff;
     width: 2px;
     transform: translateY(50%); 

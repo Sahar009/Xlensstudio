@@ -1,0 +1,32 @@
+.project-home{
+    height: 100vh;
+    
+    margin-top: 10rem;
+}
+.project-inner{
+    height: 65vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.first-image{
+    width: 90%;
+    height: 65vh;
+    
+    img{
+        width: 100%;
+        height: 100%;
+    }
+}
+.second-image{
+  
+    height: 100vh;
+    margin: 1rem 5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 30rem 30rem;
+    gap: 1rem;
+}
+.pic img{
+    width: 100%;
+    height: 100%;
+}

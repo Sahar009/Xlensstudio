@@ -7,24 +7,26 @@ import img4 from '../../assets/Materials for Websites/BURUM/IMAGES/EXTERIORS/003
 import img5 from '../../assets/Materials for Websites/BURUM/IMAGES/EXTERIORS/BURUM-AERIAL-NIGHT.jpg'
 import img6 from '../../assets/Materials for Websites/BURUM/IMAGES/NIGHT/003.jpg'
 import img7 from '../../assets/Materials for Websites/BURUM/IMAGES/EXTERIORS/006.jpg'
+import {FaLongArrowAltLeft } from "react-icons/fa";
 
 
 import Footer from '../footer/Footer'
+import { Link } from 'react-router-dom';
 const Project1 = () => {
   return (
-   
+   <>
     <div className='project-home'>
      
       <div className='project-inner'>
         <div className='first-image'>
-          <img  src={img1}/>
+          <img  src={img1} loading="lazy"/>
 
         </div>
-        <div >
+        <div className='right-text'>
           <h1>Bruhm Design</h1>
           <p>location</p>
           <p>Year</p>
-          
+         <Link to='/project'> <FaLongArrowAltLeft size={40} color='#9B934A'/></Link>
 
         </div>
 
@@ -33,28 +35,31 @@ const Project1 = () => {
       </div>
       <div className='second-image'>
         <div className='pic'>
-          <img src={img2}/>
+          <img src={img2} loading="lazy"/>
         </div>
         <div className='pic'>
-          <img src={img3}/>
+          <img src={img3} loading="lazy"/>
         </div>
         <div className='pic'>
-          <img src={img4}/>
+          <img src={img4} loading="lazy"/>
         </div>
         <div className='pic'>
-          <img src={img5}/>
+          <img src={img5} loading="lazy"/>
         </div>
         <div className='pic'>
-          <img src={img6}/>
+          <img src={img6} loading="lazy"/>
         </div>
         <div className='pic'>
-          <img src={img7}/>
+          <img src={img7} loading="lazy"/>
         </div>
 
 
       </div>
       
+      
     </div>
+   
+    </>
   )
 }
 

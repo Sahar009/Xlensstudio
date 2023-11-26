@@ -255,3 +255,61 @@ h3 {
         }
     }
 }
+@media screen and (max-width: 600px) {
+    .home{
+    .project{
+        margin-top: 5rem;
+        display: block;
+        height: 100vh;
+        
+        }
+        .project::before{
+            font-family: 'Alegreya Sans', sans-serif;
+            font-size: 3rem;
+            font-weight: 500;
+            left: 3rem;}
+        .project-left{
+           
+            img{
+                position: absolute;
+               width: 100%;
+             
+            }
+            
+    }
+    .project-right{
+       padding-right: 2rem;
+       margin-left: 0;
+    }
+    .clients{
+        padding-top: 5rem;
+
+       text-align: center;
+       padding-top: 2rem;
+
+    
+      
+       h1{
+
+        font-size: 3rem;
+       }
+       img{
+        width:300px;
+        margin: 3rem;
+       
+       }
+       .client-projects{
+        margin-top: 7rem;
+       }
+       .client-image{
+        right: 5%;
+       }
+       .text{
+        max-width: 400px;
+        margin: 1rem;
+        padding: 1rem;
+       }
+      
+}
+}
+}

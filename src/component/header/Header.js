@@ -83,10 +83,8 @@ const  Header = () => {
                 </nav>
                 
                 <div className={styles['menu-icon']}>
-                  
-                  <HiOutlineMenuAlt3 size={25} onClinck={toggleMenu}/>
-
-                </div>
+  <HiOutlineMenuAlt3 size={25} onClick={toggleMenu} />
+</div>
             </div>
         </header>
       )

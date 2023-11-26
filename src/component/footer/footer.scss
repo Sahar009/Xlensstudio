@@ -48,3 +48,22 @@
         }
     }
 }
+
+@media screen and (max-width: 600px) {
+    .footer{
+        display: block;
+        text-align: center;
+        height: 30rem;
+        ul{
+            display: block
+        }
+        .inputDiv{
+           
+            justify-content: center;
+            input{
+                height: 35px;
+                width:120px
+            }
+        }
+    }
+}

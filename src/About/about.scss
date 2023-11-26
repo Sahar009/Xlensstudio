@@ -20,3 +20,21 @@
         color: #ffffffbf;
     }
 }
+@media screen and (max-width: 600px) {
+    .about{
+       
+        display: grid;
+        grid-template-columns: 1fr ;
+        grid-template-rows: 17rem;
+        margin: 5rem 1rem 1rem 1rem
+       
+    }
+    .left-about{
+       
+       height: 50vh;
+          img{
+          
+              height: 70%;
+          }
+      }
+  }

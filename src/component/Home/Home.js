@@ -81,9 +81,10 @@ const Home = () =>{
             <div className="project-right">
                 <h5><AiOutlinePlus  className='iconStyle' /> All projects</h5>
                 {activeDiv === 'div1' && (
-                    <div className={`inner div1 ${activeDiv === 'div1' ? 'active' : ''}`}>
+                  <div className={`inner div1 ${activeDiv === 'div1' ? 'active' : ''}`}>
                         <img  src={projectRight1} />
                     </div>
+                   
                 )}
                 {activeDiv === 'div2' && (
                     <div className={`inner div1 ${activeDiv === 'div2' ? 'active' : ''}`}>

@@ -97,3 +97,31 @@
    
    }
 }
+@media screen and (max-width: 600px) {
+ 
+    .project{
+        margin-top: 5rem;
+        display: block;
+        height: 100vh;
+        
+        }
+        .project::before{
+           
+            font-size: 3rem;
+            font-weight: 500;
+            left: 3rem;}
+       
+            
+    }
+    .project-left{
+           
+        img{
+            position: absolute;
+           width: 100%;
+         
+        }
+    .project-right{
+       padding-right: 2rem;
+       margin-left: 0;
+    }
+    }

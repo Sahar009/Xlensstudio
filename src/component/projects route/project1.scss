@@ -12,14 +12,15 @@
     width: 90%;
     height: 65vh;
     
-    img{
+    img, video{
         width: 100%;
         height: 100%;
+        object-fit: cover;
     }
 }
 .second-image{
   
-    height: 100vh;
+    height: 65vh;
     margin: 1rem 5rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -29,4 +30,23 @@
 .pic img{
     width: 100%;
     height: 100%;
+}
+@media screen and (max-width: 600px) {
+    .project-inner{
+        height: 80vh;
+        display: block ;
+        margin: 2rem;
+        max-width: 600px
+        
+    }
+    .second-image{
+  
+        height: 100vh;
+        margin: 5rem 4rem;
+        display: block;
+    }
+    .right-text{
+        text-align:center ;
+        margin: 1rem;
+    }
 }

@@ -6,7 +6,7 @@ import img4 from '../../assets/Materials for Websites/MHQ PROJECT/Images/PENT  F
 import img5 from '../../assets/Materials for Websites/MHQ PROJECT/Images/5TH-FLOOR_GENERAL-OFFICE_VIEW_08.jpg'
 import img6 from '../../assets/Materials for Websites/MHQ PROJECT/Images/5TH-FLOOR_GENERAL-OFFICE_VIEW_II_02.jpg'
 import img7 from '../../assets/Materials for Websites/MHQ PROJECT/Images/6TH-FLOOR_RECEPTION_VIEW_01.jpg'
-import vid1 from '../../assets/Materials for Websites/MHQ PROJECT/Videos/vid.mp4'
+// import vid1 from '../../assets/Materials for Websites/MHQ PROJECT/Videos/vid.mp4'
 
 
 const Project3 = () => {

@@ -1,66 +1,51 @@
-import React from 'react'
-import './project1.scss'
-import img1 from '../../assets/Materials for Websites/BURUM/IMAGES/CAM 3.jpg';
-import img2 from '../../assets/Materials for Websites/BURUM/IMAGES/CAM_1.jpg'
-import img3 from '../../assets/Materials for Websites/BURUM/IMAGES/NIGHT/002.jpg'
-import img4 from '../../assets/Materials for Websites/BURUM/IMAGES/EXTERIORS/003-02.jpg'
-import img5 from '../../assets/Materials for Websites/BURUM/IMAGES/EXTERIORS/BURUM-AERIAL-NIGHT.jpg'
-import img6 from '../../assets/Materials for Websites/BURUM/IMAGES/NIGHT/003.jpg'
-import img7 from '../../assets/Materials for Websites/BURUM/IMAGES/EXTERIORS/006.jpg'
-import {FaLongArrowAltLeft } from "react-icons/fa";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import './project1.scss';
 
-
-import Footer from '../footer/Footer'
+import { FaLongArrowAltLeft } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+
 const Project1 = () => {
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    axios.get("https://xlensvisualization-backend.onrender.com/api/projects/floorplans")
+      .then((response) => {
+        console.log(response.data);  // Make sure you're logging `response.data` to see the correct structure
+        setProjects(response.data);  // Assuming `response.data` is the array of projects
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
+
   return (
-   <>
-    <div className='project-home'>
-     
-      <div className='project-inner'>
-        <div className='first-image'>
-          <img  src={img1} loading="lazy"/>
+    <>
+      {projects.map((project, index) => (
+        <div key={index} className='project-home'>
+          <div className='project-inner'>
+            <div className='first-image'>
+              <img src={project.images[0].url} loading="lazy" alt='images' />
+            </div>
+            <div className='right-text'>
+              <h1>{project.designName}</h1>
+              <p>{project.location || "Location"}</p>
+              <p>{project.date}</p>
+              <Link to='/project'> <FaLongArrowAltLeft size={40} color='#9B934A' /></Link>
+            </div>
+          </div>
 
+          <div className='second-image'>
+            {project.images.slice(1).map((image, imgIndex) => (
+              <div key={imgIndex} className='pic'>
+                <img src={image.url} loading="lazy" alt='images' />
+              </div>
+            ))}
+          </div>
         </div>
-        <div className='right-text'>
-          <h1>Bruhm Design</h1>
-          <p>location</p>
-          <p>Year</p>
-         <Link to='/project'> <FaLongArrowAltLeft size={40} color='#9B934A'/></Link>
-
-        </div>
-
-        
-
-      </div>
-      <div className='second-image'>
-        <div className='pic'>
-          <img src={img2} loading="lazy"/>
-        </div>
-        <div className='pic'>
-          <img src={img3} loading="lazy"/>
-        </div>
-        <div className='pic'>
-          <img src={img4} loading="lazy"/>
-        </div>
-        <div className='pic'>
-          <img src={img5} loading="lazy"/>
-        </div>
-        <div className='pic'>
-          <img src={img6} loading="lazy"/>
-        </div>
-        <div className='pic'>
-          <img src={img7} loading="lazy"/>
-        </div>
-
-
-      </div>
-      
-      
-    </div>
-   
+      ))}
     </>
   )
 }
 
-export default Project1
+export default Project1;

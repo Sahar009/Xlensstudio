@@ -1,58 +1,52 @@
-import './project1.scss'
-import img1 from '../../assets/Materials for Websites/MHQ PROJECT/Images/RG_CAM002_0001.jpg';
-import img2 from '../../assets/Materials for Websites/MHQ PROJECT/Images/Soft Seating_1.jpg'
-import img3 from '../../assets/Materials for Websites/MHQ PROJECT/Images/5TH-FLOOR_GENERAL-OFFICE_VIEW_II_04.jpg'
-import img4 from '../../assets/Materials for Websites/MHQ PROJECT/Images/PENT  FLOOR_OFFICE_VIEW_02.jpg'
-import img5 from '../../assets/Materials for Websites/MHQ PROJECT/Images/5TH-FLOOR_GENERAL-OFFICE_VIEW_08.jpg'
-import img6 from '../../assets/Materials for Websites/MHQ PROJECT/Images/5TH-FLOOR_GENERAL-OFFICE_VIEW_II_02.jpg'
-import img7 from '../../assets/Materials for Websites/MHQ PROJECT/Images/6TH-FLOOR_RECEPTION_VIEW_01.jpg'
-// import vid1 from '../../assets/Materials for Websites/MHQ PROJECT/Videos/vid.mp4'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import './project1.scss';
+
+import { FaLongArrowAltLeft } from "react-icons/fa";
+import { Link } from 'react-router-dom';
+
 
 
 const Project3 = () => {
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    axios.get("https://xlensvisualization-backend.onrender.com/api/projects/mhqprojects")
+      .then((response) => {
+        console.log(response.data);  // Make sure you're logging `response.data` to see the correct structure
+        setProjects(response.data);  // Assuming `response.data` is the array of projects
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
+
   return (
-    <div className='project-home'>
-     
-    <div className='project-inner'>
-      <div className='first-image'>
-       <img src={img2}/>
-        {/* <video autoPlay muted loop src='https://drive.google.com/file/d/1TZ2AphZnimx-RRfvreMNeIAAvR8d_KjO/view?usp=drive_link'></video> */}
-      </div>
-      <div >
-        <h1>MHQ Project</h1>
-        <p>location</p>
-        <p>Year</p>
-        
+    <>
+      {projects.map((project, index) => (
+        <div key={index} className='project-home'>
+          <div className='project-inner'>
+            <div className='first-image'>
+              <img src={project.images[0].url} loading="lazy" alt='images' />
+            </div>
+            <div className='right-text'>
+              <h1>{project.designName}</h1>
+              <p>{project.location || "Location"}</p>
+              <p>{project.date}</p>
+              <Link to='/project'> <FaLongArrowAltLeft size={40} color='#9B934A' /></Link>
+            </div>
+          </div>
 
-      </div>
-
-      
-
-    </div>
-    <div className='second-image'>
-      <div className='pic'>
-      <img  src={img1} loading="lazy"/>
-      </div>
-      <div className='pic'>
-        <img src={img3} loading="lazy"/>
-      </div>
-      <div className='pic'>
-        <img src={img4} loading="lazy"/>
-      </div>
-      <div className='pic'>
-        <img src={img5} loading="lazy"/>
-      </div>
-      <div className='pic'>
-        <img src={img6} loading="lazy"/>
-      </div>
-      <div className='pic'>
-        <img src={img7} loading="lazy"/>
-      </div>
-
-
-    </div>
-    
-  </div>
+          <div className='second-image'>
+            {project.images.slice(1).map((image, imgIndex) => (
+              <div key={imgIndex} className='pic'>
+                <img src={image.url} loading="lazy" alt='images' />
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </>
   )
 }
 

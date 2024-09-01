@@ -3,6 +3,7 @@ import './contact.scss'
 import { AiFillBehanceCircle, AiFillInstagram, AiOutlineWhatsApp } from 'react-icons/ai';
 import { FiYoutube } from 'react-icons/fi';
 import { MdEmail } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 
 const Contact = () => {
@@ -28,12 +29,12 @@ const Contact = () => {
             </div>
             <div>
             <div className='email'>
-            <a href="mailto:akinwumisehinde@gmail.com" target='_blank'><MdEmail className='icon' size={18}/></a>
-              <a href="mailto:akinwumisehinde@gmail.com" target='_blank'> xlensviz@gmail.com</a>
+            <Link href="mailto:akinwumisehinde@gmail.com" target='_blank'><MdEmail className='icon' size={18}/></Link>
+              <Link href="mailto:akinwumisehinde@gmail.com" target='_blank'> xlensviz@gmail.com</Link>
             </div>
             <div className='email'>
             <AiOutlineWhatsApp className='icon' size={18}/>
-            <a href="https://api.whatsapp.com/send?phone=23408101126131" target='_blank'><h5> +234(8101126131)</h5></a>
+            <Link href="https://api.whatsapp.com/send?phone=23408101126131" target='_blank'><h5> +234(8101126131)</h5></Link>
             </div>
             </div>
           </div>

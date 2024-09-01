@@ -1,6 +1,6 @@
-import {useState,useEffect} from 'react';
+import {useState} from 'react';
 import styles from "./Header.module.scss";
-import {Link, NavLink, useNavigate} from 'react-router-dom';
+import {Link, NavLink,} from 'react-router-dom';
 import { FaTimes} from 'react-icons/fa';
 import {HiOutlineMenuAlt3} from 'react-icons/hi';
 import logo from '../../assets/Final Logo white_  (1) 1.png'

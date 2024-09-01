@@ -8,9 +8,9 @@ const Slider = () => {
     const[currentSlide, setCurrentSlide]=useState(0)
     const slideLength = sliderData.length;
     // console.log(slideLength);
-    const autoScroll = true;
-    let slideInterval;
-    let intervalTime = 5000;
+    // const autoScroll = true;
+    // let slideInterval;
+    // let intervalTime = 5000;
 
     const nextSlide =()=> {
         setCurrentSlide(currentSlide === slideLength - 1 ? 0 : currentSlide + 1);

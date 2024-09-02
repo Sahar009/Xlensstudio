@@ -58,8 +58,6 @@
         height: 350px;
         width: 550px;
         border-radius: 1rem;
-        
-
         img{
             width: 100%;
             height: 100%;
@@ -120,8 +118,13 @@
            width: 100%;
          
         }
+
+    }
     .project-right{
-       padding-right: 2rem;
-       margin-left: 0;
-    }
-    }
+        padding:0 2rem;
+        margin-left: 0;
+        .inner{
+            height: 350px;
+            width: 100%;
+            border-radius: 1rem;}
+     }

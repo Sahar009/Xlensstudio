@@ -14,6 +14,8 @@ import Project3 from './component/projects route/Project3';
 import { ToastContainer } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 import Project4 from './component/projects route/Project4';
+import ServiceSlider from './component/Home/serviceSlider/ServiceSlider';
+import Service from './component/Home/services/Service';
 
 
 function App() {
@@ -43,6 +45,9 @@ theme="light"
   <Route element={ <Project2/>} path='/interior'/>
   <Route element={ <Project3/>} path='/mhq'/>
   <Route element={ <Project4/>} path='/visualization3D'/>
+
+  <Route element={<ServiceSlider/>} path="/serviceSlider"/>
+  <Route element={<Service/>} path='/services'/>
 
 
  

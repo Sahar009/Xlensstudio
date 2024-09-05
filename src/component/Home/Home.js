@@ -3,14 +3,15 @@ import './home.scss'
 import client1 from '../../assets/clients.png';
 import { useEffect, useState } from "react";
 import clientimage from '../../assets/client-background (1).png'
-import interior from '../../assets/Group 12.png'
 import Footer from "../footer/Footer";
 import {  AiOutlinePlus } from "react-icons/ai";
 
 // import projectRight2 from '../../assets/Materials for Websites/INTERIOR PROJECTS/Lounge_01.jpg'
 
-import { Link } from "react-router-dom";
+
 import Project from "../project/Project";
+import Service from "./services/Service";
+
 const Home = () =>{
     const [countProjects, setCountProjects] = useState(0);
     const [countContractors, setCountContractors] = useState(0);
@@ -44,11 +45,7 @@ const Home = () =>{
 
 
     //section render pricing 
-    const [activeSection, setActiveSection] = useState('interior');
-
-    const handleSectionClick = (section) => {
-        setActiveSection(section);
-    };
+    
 
     //section displays on click
   
@@ -93,41 +90,7 @@ const Home = () =>{
            {/* <img src={clientback}/> */}
           
             </div>
-            <section className="service">
-            <div className="service-nav">
-                <ul>
-                   <li><Link onClick={() => handleSectionClick('interior')}> Interior</Link></li>
-                 <li >  <Link onClick={() => handleSectionClick('exterior')}>Exterior</Link></li>
-                   <li>  <Link  onClick={() => handleSectionClick('product')}>Product</Link></li>
-                <li> <Link onClick={() => handleSectionClick('visualization')}>Visualization</Link></li>
-               <li><Link onClick={() => handleSectionClick('floor-plans')}>Floor Plans </Link></li>
-                </ul>
-            </div>
-            <div className={`interior ${activeSection === 'interior' ? 'active' : ''}`}>
-                <p>Rendering pricing estimate for interior design</p>
-                <div>
-        
-                    <div className="serviceText">
-                    <h3>Time frame: <span>3-6 days</span></h3>
-                    <h3>Price Range: <span>$450 - $950</span></h3>
-                    <h3>Contact us</h3>
-                    </div>
-                    <div className="serviceImage">
-                         <img alt="Interior" src={interior} />
-                      
-                    </div>
-                  
-                </div>
-            </div>
-            <div className={`exterior ${activeSection === 'exterior' ? 'active' : ''}`}>
-                <p>Rendering pricing estimate for exterior design</p>
-                <div>
-                    <h1>Exterior page</h1>
-                    <img alt="Exterior" src="exterior-image-url" />
-                </div>
-            </div>
-            
-        </section>
+           <Service/>
         <Footer/>
         
         </div>

@@ -40,7 +40,7 @@ const ServiceSlider = ({ images }) => {
         {images.map((image, index) => (
           <SwiperSlide key={index}>
             {/* Make sure to access the `url` property */}
-            <img className='mySwiperImg' src={image.url} alt={`Slide ${index + 1}`} />
+            <img className='mySwiperImg' loading="lazy" src={image.url} alt={`Slide ${index + 1}`} />
           </SwiperSlide>
         ))}
       </Swiper>

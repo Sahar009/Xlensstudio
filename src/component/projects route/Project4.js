@@ -4,6 +4,7 @@ import './project1.scss';
 
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const Project4 = () => {
     const [projects, setProjects] = useState([]);
@@ -25,7 +26,8 @@ const Project4 = () => {
           <div key={index} className='project-home'>
             <div className='project-inner'>
               <div className='first-image'>
-                <img src={project.images[0].url} loading="lazy" alt='images' />
+                <LazyLoadImage src={project.images[0].url} loading="lazy" alt='images' />
+              
               </div>
               <div className='right-text'>
                 <h1>{project.designName}</h1>
@@ -38,7 +40,7 @@ const Project4 = () => {
             <div className='second-image'>
               {project.images.slice(1).map((image, imgIndex) => (
                 <div key={imgIndex} className='pic'>
-                  <img src={image.url} loading="lazy" alt='images' />
+                  <LazyLoadImage  src={image.url} loading="lazy" alt='images'/>
                 </div>
               ))}
             </div>

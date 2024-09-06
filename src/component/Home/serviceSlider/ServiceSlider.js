@@ -3,6 +3,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import './serviceSlider.scss';
 import { Autoplay, Pagination } from 'swiper/modules';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const ServiceSlider = ({ images }) => {
   return (
@@ -40,7 +41,8 @@ const ServiceSlider = ({ images }) => {
         {images.map((image, index) => (
           <SwiperSlide key={index}>
             {/* Make sure to access the `url` property */}
-            <img className='mySwiperImg' loading="lazy" src={image.url} alt={`Slide ${index + 1}`} />
+            <LazyLoadImage className='mySwiperImg' src={image.url} alt={`Slide ${index + 1}`}/>
+            {/* <img  loading="lazy"   /> */}
           </SwiperSlide>
         ))}
       </Swiper>

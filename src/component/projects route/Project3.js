@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './project1.scss';
-
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { Link } from 'react-router-dom';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-
-
+import ImageWithBlurhash from './blurhash/ImageWithBlurhash';
 
 const Project3 = () => {
   const [projects, setProjects] = useState([]);
@@ -14,8 +11,8 @@ const Project3 = () => {
   useEffect(() => {
     axios.get("https://xlensvisualization-backend.onrender.com/api/projects/mhqprojects")
       .then((response) => {
-        console.log(response.data);  // Make sure you're logging `response.data` to see the correct structure
-        setProjects(response.data);  // Assuming `response.data` is the array of projects
+        console.log(response.data);
+        setProjects(response.data);
       })
       .catch((err) => {
         console.log(err.message);
@@ -28,29 +25,27 @@ const Project3 = () => {
         <div key={index} className='project-home'>
           <div className='project-inner'>
             <div className='first-image'>
-              <LazyLoadImage src={project.images[0].url} loading="lazy" alt='images'/>
-            
+              <ImageWithBlurhash blurhash={project.images[0].blurhash} src={project.images[0]?.url} alt='project' />
             </div>
             <div className='right-text'>
               <h1>{project.designName}</h1>
               <p>{project.location || "Location"}</p>
               <p>{project.date}</p>
-              <Link to='/project'> <FaLongArrowAltLeft size={40} color='#9B934A' /></Link>
+              <Link to='/project'><FaLongArrowAltLeft size={40} color='#9B934A' /></Link>
             </div>
           </div>
 
           <div className='second-image'>
             {project.images.slice(1).map((image, imgIndex) => (
               <div key={imgIndex} className='pic'>
-                <LazyLoadImage  src={image.url} loading="lazy" alt='images'/>
-               
+                <ImageWithBlurhash blurhash={image.blurhash} src={image.url} alt={`project-image-${imgIndex}`} />
               </div>
             ))}
           </div>
         </div>
       ))}
     </>
-  )
-}
+  );
+};
 
-export default Project3
+export default Project3;

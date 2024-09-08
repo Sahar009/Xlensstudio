@@ -12,7 +12,7 @@ const Service = () => {
   useEffect(() => {
     const fetchImages = async () => {
       let endpoint = '';
-      
+
       // Define the endpoint based on the active section
       switch (activeSection) {
         case 'interior':
@@ -31,20 +31,16 @@ const Service = () => {
           return;
       }
 
-      // Fetch the images from the endpoint
-   
-        axios.get(endpoint)
-          .then((response) => {
-            console.log(response.data[0].images);  // Make sure you're logging `response.data` to see the correct structure
-            setImages(response.data[0].images);  // Assuming `response.data` is the array of projects
-          })
-          .catch((err) => {
-            console.log(err.message);
-          });
-   
+      try {
+        const response = await axios.get(endpoint);
+        console.log(response.data[0].images);  // Logging the correct structure
+        setImages(response.data[0].images);  // Assuming response.data[0].images is the correct array
+      } catch (err) {
+        console.log(err.message);
+      }
     };
 
-    fetchImages();
+    fetchImages(); // Call the fetch function
   }, [activeSection]); // Re-run the effect when activeSection changes
 
   const sectionDetails = {
@@ -53,9 +49,6 @@ const Service = () => {
     visualization: { title: 'Visualization Design', timeFrame: '3-6 days', priceRange: '$450 - $950' },
     floorPlan: { title: 'Floor Plans', timeFrame: '3-6 days', priceRange: '$450 - $950' },
   };
-
-
-  
 
   return (
     <section className="service">
@@ -80,9 +73,8 @@ const Service = () => {
             </div>
             {/* Pass the dynamically fetched images to ServiceSlider */}
             <div className='serviceImage'>
-            <ServiceSlider images={images} />
+              <ServiceSlider images={images} />
             </div>
-          
           </div>
         </div>
       ))}

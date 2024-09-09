@@ -31,7 +31,7 @@ const Project1 = () => {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    axios.get("https://xlensvisualization-backend.onrender.com/api/projects/floorplanss")
+    axios.get("https://xlensvisualization-backend.onrender.com/api/projects/floorplans")
       .then((response) => {
         console.log(response.data); // Logging the response to ensure the structure
         setProjects(response.data); // Assuming `response.data` contains the array of projects

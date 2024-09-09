@@ -18,10 +18,24 @@
         /* Center slide text vertically */
         display: flex;
         justify-content: center;
-        align-items: center; background-image: url("../../projects route/blurhash/defaultImage/istockphoto-1147544807-612x612.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
+        // align-items: center; background-image: url("../../projects route/blurhash/defaultImage/istockphoto-1147544807-612x612.jpg");
+        // background-size: cover;
+        // background-repeat: no-repeat;
        
+      }
+      .skeleton_div{
+        width: 100%;
+        height: 100%;
+      }
+      .mySwiperImg{
+        display: block;
+        width:100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 20px;
+        //  background-image: url("../../projects route/blurhash/defaultImage/istockphoto-1147544807-612x612.jpg");
+    //  height: 300px;
+      border-radius: 20px;
       }
       
       .swiper-slide img {
@@ -30,7 +44,7 @@
         height: 100%;
         object-fit: cover;
         border-radius: 20px;
-         background-image: url("../../projects route/blurhash/defaultImage/istockphoto-1147544807-612x612.jpg");
+        //  background-image: url("../../projects route/blurhash/defaultImage/istockphoto-1147544807-612x612.jpg");
     //  height: 300px;
       border-radius: 20px;
     }
@@ -40,7 +54,7 @@
   @media screen and (max-width:600px){
     .swiperContainer{
       margin: 0 auto ;
-        width: 80%;
+        width: 90%;
         height: 300px;
         overflow: hidden;
         .swiper {
@@ -59,19 +73,31 @@
             overflow: hidden;
             width: 100%;
             height: 100%;
-            background-image: url("../../projects route/blurhash/defaultImage/istockphoto-1147544807-612x612.jpg");
-            background-size: cover;
-            background-repeat: no-repeat;
+            // background-image: url("../../projects route/blurhash/defaultImage/istockphoto-1147544807-612x612.jpg");
+            // background-size: cover;
+            // background-repeat: no-repeat;
            
           }
-          
+          .skeleton_div{
+            width: 100%;
+            height: 100%;
+          }
           .swiper-slide img {
             display: block;
             min-width: 100%;
             height: 100%;
             object-fit: cover;
             border-radius: 20px;
-         background-image: url("../../projects route/blurhash/defaultImage/istockphoto-1147544807-612x612.jpg");
+ 
+        }
+        .mySwiperImg{
+          display: block;
+          min-width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 20px;
+        
+     
         }
     
     }

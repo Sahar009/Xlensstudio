@@ -4,13 +4,16 @@ import ServiceSlider from '../serviceSlider/ServiceSlider';
 import { Link } from 'react-router-dom';
 import './service.scss';
 
+
 const Service = () => {
   const [activeSection, setActiveSection] = useState('interior');
   const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(true);  // Track loading state
 
   // Fetch the images when the active section changes
   useEffect(() => {
     const fetchImages = async () => {
+      setLoading(true);  // Set loading to true before fetching
       let endpoint = '';
 
       // Define the endpoint based on the active section
@@ -33,10 +36,11 @@ const Service = () => {
 
       try {
         const response = await axios.get(endpoint);
-        console.log(response.data[0].images);  // Logging the correct structure
         setImages(response.data[0].images);  // Assuming response.data[0].images is the correct array
+        setLoading(false);  // Set loading to false after images are fetched
       } catch (err) {
         console.log(err.message);
+        setLoading(false);  // Handle error and stop loading
       }
     };
 
@@ -71,9 +75,10 @@ const Service = () => {
               <h3>Price Range: <span>{sectionDetails[section].priceRange}</span></h3>
               <h3>Contact us</h3>
             </div>
-            {/* Pass the dynamically fetched images to ServiceSlider */}
+            {/* Pass the dynamically fetched images and loading state to ServiceSlider */}
             <div className='serviceImage'>
-              <ServiceSlider images={images} />
+              
+              <ServiceSlider images={images} loading={loading}  />
             </div>
           </div>
         </div>

@@ -60,7 +60,7 @@ const Project1 = () => {
             {/* First Image */}
             <div className='first-image'>
               <ImageWithBlurhash
-                blurhash={project.images[0]?.blurhash}
+                blurhash={project.images[0]?.url.blurhash}
                 src={project.images[0]?.url}
                 alt='project'
               />

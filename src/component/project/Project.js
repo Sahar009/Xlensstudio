@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 import { AiOutlineMinus } from "react-icons/ai";
 import { GiClick } from "react-icons/gi";
 import backgroundleft from '../../assets/depositphotos_78505366-stock-illustration-interior-drawing 1.png';
-import Footer from '../footer/Footer';
 import { Blurhash } from 'react-blurhash';
 
 const Project = () => {

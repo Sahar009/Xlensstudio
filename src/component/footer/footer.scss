@@ -55,7 +55,18 @@
         text-align: center;
         height: 30rem;
         ul{
-            display: block
+            display: block;
+        li{
+         border-radius: 5px;
+         padding: .8rem 0;
+         background-color: var(--color-home);
+         margin-left:1rem;
+         transition:all .5s ease;
+
+         &:hover{
+            background-color: var(--color-dark);
+         }
+        }
         }
         .inputDiv{
            

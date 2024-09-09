@@ -8,22 +8,33 @@ import onDefaultImage from "./blurhash/defaultImage/istockphoto-1147544807-612x6
 
 // Image rendering component that handles both Blurhash and regular image
 const ImageWithBlurhash = ({ blurhash, src, alt }) => {
-  return blurhash ? (
-    <Blurhash
-      hash={blurhash}
-      style={{ width: '100%', height: '100%' }} // 100% height and width for Blurhash
-      resolutionX={32}
-      resolutionY={32}
-      punch={1}
-    />
-  ) : (
-    <img
-      src={src}
-      alt={alt}
-      style={{ width: '100%', height: '100%', objectFit: 'cover' }} // 100% for img with cover fit
-      onLoad={() => console.log('Image loaded')}
-      onError={(e) => { e.target.src = onDefaultImage; }}  // Corrected fallback image assignment
-    />
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  const handleImageLoad = () => {
+    setIsLoaded(true);
+  };
+
+  return (
+    <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+      {/* Show Blurhash while the image is loading */}
+      {!isLoaded && blurhash && (
+        <Blurhash
+          hash={blurhash}
+          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+          resolutionX={32}
+          resolutionY={32}
+          punch={1}
+        />
+      )}
+
+      <img
+        src={src}
+        alt={alt}
+        style={{ width: '100%', height: '100%', objectFit: 'cover', display: isLoaded ? 'block' : 'none' }}
+        onLoad={handleImageLoad}
+        onError={(e) => { e.target.src = onDefaultImage; setIsLoaded(true); }}  // Set fallback image and mark as loaded
+      />
+    </div>
   );
 };
 

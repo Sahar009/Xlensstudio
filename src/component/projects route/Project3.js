@@ -9,7 +9,8 @@ const Project3 = () => {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    axios.get("https://xlensvisualization-backend.onrender.com/api/projects/mhqprojects")
+    try {
+      axios.get("https://xlensvisualization-backend.onrender.com/api/projects/mhqprojects")
       .then((response) => {
         console.log(response.data);
         setProjects(response.data);
@@ -17,6 +18,11 @@ const Project3 = () => {
       .catch((err) => {
         console.log(err.message);
       });
+    } catch (error) {
+      console.log(error.message);
+      
+    }
+    
   }, []);
 
   return (

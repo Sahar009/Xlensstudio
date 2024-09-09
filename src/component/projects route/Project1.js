@@ -42,14 +42,20 @@ const Project1 = () => {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    axios.get("https://xlensvisualization-backend.onrender.com/api/projects/floorplans")
+    try {
+      axios.get("https://xlensvisualization-backend.onrender.com/api/projects/floorplans")
       .then((response) => {
-        console.log(response.data); // Logging the response to ensure the structure
-        setProjects(response.data); // Assuming `response.data` contains the array of projects
+        console.log(response.data); 
+        setProjects(response.data); 
       })
       .catch((err) => {
         console.log(err.message);
       });
+    } catch (error) {
+      console.log(error.message);
+      
+    }
+   
   }, []);
 
   return (
@@ -60,7 +66,7 @@ const Project1 = () => {
             {/* First Image */}
             <div className='first-image'>
               <ImageWithBlurhash
-                blurhash={project.images[0]?.url.blurhash}
+                blurhash="LFF~dD-lM_WT_NjGogRkOBjdxbWB"
                 src={project.images[0]?.url}
                 alt='project'
               />

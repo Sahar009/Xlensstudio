@@ -16,7 +16,11 @@
         margin: 1rem;
         margin-left: 4rem;
 
-
+      .footerImg{
+        width: 230px;
+        height: 40px;
+        object-fit: cover;
+      }
     }
     a{
         color: #fff;

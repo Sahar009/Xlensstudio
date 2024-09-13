@@ -3,7 +3,7 @@ import styles from "./Header.module.scss";
 import {Link, NavLink,} from 'react-router-dom';
 import { FaTimes} from 'react-icons/fa';
 import {HiOutlineMenuAlt3} from 'react-icons/hi';
-import logo from '../../assets/Final Logo white_  (1) 1.png'
+import logo from '../../assets/Final Logo white_ .png'
 
 
 const activeLink = ({ isActive }) => (isActive ? `${styles.active}` : "");
@@ -29,7 +29,7 @@ const  Header = () => {
                 
                 <Link to='/' >               
               
-                   <img src={logo} alt='logo'/>
+                   <img className='headerImg' src={logo} alt='logo'/>
            
                </Link>    
                

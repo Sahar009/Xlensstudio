@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './footer.scss';
-import footerImg from '../../assets/Final Logo white_  (1) 1.png';
+import footerImg from '../../assets/Final Logo white_ .png';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
@@ -41,7 +41,7 @@ const Footer = () => {
         <li><Link to='/about' >About</Link></li>
         <li><Link to='/' >Stocklist</Link></li>
         <li><Link to='/contact' >Contact</Link></li>
-        <li><Link to='#' ><img src={footerImg} alt="Footer Logo" /></Link></li>
+        <li><Link to='#' ><img className='footerImg' src={footerImg} alt="Footer Logo" /></Link></li>
         <li><Link to='/contact' >Stay in touch</Link></li>
       </ul>
       <div className='inputDiv'>

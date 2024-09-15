@@ -1,7 +1,7 @@
 import Slider from "../slider/Slider";
 import './home.scss'
 import client1 from '../../assets/clients.png';
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import clientimage from '../../assets/client-background (1).png'
 import Footer from "../footer/Footer";
 import {  AiOutlinePlus } from "react-icons/ai";
@@ -11,6 +11,8 @@ import {  AiOutlinePlus } from "react-icons/ai";
 
 import Project from "../project/Project";
 import Service from "./services/Service";
+
+import { FaArrowDown } from "react-icons/fa";
 
 const Home = () =>{
     const [countProjects, setCountProjects] = useState(0);
@@ -47,7 +49,14 @@ const Home = () =>{
     //section render pricing 
     
 
-    //section displays on click
+    const projectRef = useRef(null); // Create a ref for the Project section
+
+  // Function to scroll to the Project section
+  const scrollToProject = () => {
+    if (projectRef.current) {
+      projectRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   
     
     return(
@@ -55,8 +64,11 @@ const Home = () =>{
         <>
         <Slider/>
         <div className="home">
-    
-        <Project/>
+        <div className="ball" onClick={scrollToProject} style={{ cursor: 'pointer' }}><FaArrowDown  className='downArrowIcon'/></div>
+        
+        <div ref={projectRef}>
+        <Project />
+      </div>
             <div className="clients">
                 <h2>Our Clients</h2>
                 <img src={client1}  alt='images'/>

@@ -11,11 +11,13 @@ const Project1 = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch project data from the backend
+    // Function to fetch project data from the backend
     const fetchProjects = async () => {
       try {
         const response = await axios.get("https://xlensvisualization-backend.onrender.com/api/projects/floorplans");
-        setProjects(response.data); // Store project data
+        const projectData = response.data;
+        setProjects(projectData); // Store project data in state
+        localStorage.setItem('projects', JSON.stringify(projectData)); // Save the data to localStorage
         setLoading(false); // Disable loading spinner
       } catch (error) {
         console.error(error.message);
@@ -23,7 +25,14 @@ const Project1 = () => {
       }
     };
 
-    fetchProjects();
+    // Check if data already exists in localStorage
+    const storedProjects = localStorage.getItem('projects');
+    if (storedProjects) {
+      setProjects(JSON.parse(storedProjects)); // Load projects from localStorage
+      setLoading(false); // Disable loading spinner
+    } else {
+      fetchProjects(); // Fetch data from the API if not in localStorage
+    }
   }, []);
 
   return (

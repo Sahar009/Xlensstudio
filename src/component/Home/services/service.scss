@@ -89,3 +89,13 @@ span{
 }
 }
 }
+
+@media screen and (max-width:600px){
+    li{
+        color: #fff;
+        font-size: 1.1rem;
+        font-weight: 500;
+        list-style: none;
+        margin: .5rem;
+    }   
+}

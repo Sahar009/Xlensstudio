@@ -2,6 +2,35 @@
     height:180vh;
     background: #151515;
     margin-top: 0;
+    
+  .ball {
+    position: absolute;
+    top: 75%;
+    left: 10%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var( --color-home);
+    animation: bounce 1.5s;
+    animation-direction: alternate;
+    animation-timing-function: cubic-bezier(0.5, 0.05, 1, 0.5);
+    animation-iteration-count: infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .downArrowIcon{
+    color: var( --color-grey);
+    font-size: 25px;
+  }
+  @keyframes bounce {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(0, 100px, 0);
+    }
+  }
     .clients{
         padding-top: 5rem;
 
@@ -83,6 +112,13 @@
             transform: translateY(0);
         }
     }
+}
+@media screen and (max-width: 1000px){
+    .home{
+.ball {
+    display: none;
+}
+}
 }
 @media screen and (max-width: 600px) {
     .home{

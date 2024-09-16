@@ -52,7 +52,7 @@ const Project4 = () => {
               <div className='right-text'>
                 <h1>{project.designName}</h1>
                 <p>{project.location || "Location"}</p>
-                <p>{project.date}</p>
+                <p>{new Date(project.date).toLocaleDateString()}</p>
                 <Link to='/project'>
                   <FaLongArrowAltLeft size={40} color='#9B934A' />
                 </Link>

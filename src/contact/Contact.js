@@ -6,6 +6,7 @@ import { MdEmail } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import Footer from '../component/footer/Footer';
 
 
 const Contact = () => {
@@ -72,6 +73,7 @@ const Contact = () => {
 
 
   return (
+    <>
     <div className='contact'>
         <div className='form-section'>
         <form action="">
@@ -104,8 +106,10 @@ const Contact = () => {
             </div>
           </div>
         </div>
-
+    
     </div>
+    <Footer/>
+    </>
   )
 }
 

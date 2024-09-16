@@ -4,48 +4,53 @@ import ServiceSlider from '../serviceSlider/ServiceSlider';
 import { Link } from 'react-router-dom';
 import './service.scss';
 
-
 const Service = () => {
   const [activeSection, setActiveSection] = useState('interior');
   const [images, setImages] = useState([]);
-  const [loading, setLoading] = useState(true);  // Track loading state
+  const [loading, setLoading] = useState(true);
 
-  // Fetch the images when the active section changes
   useEffect(() => {
-    const fetchImages = async () => {
-      setLoading(true);  // Set loading to true before fetching
-      let endpoint = '';
+    const cachedImages = localStorage.getItem(activeSection); // Check if images are cached
 
-      // Define the endpoint based on the active section
-      switch (activeSection) {
-        case 'interior':
-          endpoint = 'https://xlensvisualization-backend.onrender.com/api/projects/interiordesigns';
-          break;
-        case 'exterior':
-          endpoint = 'https://xlensvisualization-backend.onrender.com/api/projects/mhqprojects';
-          break;
-        case 'visualization':
-          endpoint = 'https://xlensvisualization-backend.onrender.com/api/projects/visualizations';
-          break;
-        case 'floorPlan':
-          endpoint = 'https://xlensvisualization-backend.onrender.com/api/projects/floorplans';
-          break;
-        default:
-          return;
-      }
+    if (cachedImages) {
+      setImages(JSON.parse(cachedImages));
+      setLoading(false); // Skip fetching if cached images are available
+    } else {
+      const fetchImages = async () => {
+        setLoading(true);
+        let endpoint = '';
 
-      try {
-        const response = await axios.get(endpoint);
-        setImages(response.data[0].images);  // Assuming response.data[0].images is the correct array
-        setLoading(false);  // Set loading to false after images are fetched
-      } catch (err) {
-        console.log(err.message);
-        setLoading(false);  // Handle error and stop loading
-      }
-    };
+        switch (activeSection) {
+          case 'interior':
+            endpoint = 'https://xlensvisualization-backend.onrender.com/api/projects/interiordesigns';
+            break;
+          case 'exterior':
+            endpoint = 'https://xlensvisualization-backend.onrender.com/api/projects/mhqprojects';
+            break;
+          case 'visualization':
+            endpoint = 'https://xlensvisualization-backend.onrender.com/api/projects/visualizations';
+            break;
+          case 'floorPlan':
+            endpoint = 'https://xlensvisualization-backend.onrender.com/api/projects/floorplans';
+            break;
+          default:
+            return;
+        }
 
-    fetchImages(); // Call the fetch function
-  }, [activeSection]); // Re-run the effect when activeSection changes
+        try {
+          const response = await axios.get(endpoint);
+          setImages(response.data[0].images);
+          localStorage.setItem(activeSection, JSON.stringify(response.data[0].images)); // Cache images
+          setLoading(false);
+        } catch (err) {
+          console.log(err.message);
+          setLoading(false);
+        }
+      };
+
+      fetchImages();
+    }
+  }, [activeSection]);
 
   const sectionDetails = {
     interior: { title: 'Interior Design', timeFrame: '3-6 days', priceRange: '$450 - $950' },
@@ -75,10 +80,8 @@ const Service = () => {
               <h3>Price Range: <span>{sectionDetails[section].priceRange}</span></h3>
               <h3>Contact us</h3>
             </div>
-            {/* Pass the dynamically fetched images and loading state to ServiceSlider */}
-            <div className='serviceImage'>
-              
-              <ServiceSlider images={images} loading={loading}  />
+            <div className="serviceImage">
+              <ServiceSlider images={images} loading={loading} />
             </div>
           </div>
         </div>

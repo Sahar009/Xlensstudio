@@ -7,6 +7,7 @@ import './service.scss';
 const Service = () => {
   const [activeSection, setActiveSection] = useState('interior');
   const [images, setImages] = useState([]);
+  const [projects, setProjects] = useState([]); // Fixed typo to setProjects (plural)
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -39,11 +40,23 @@ const Service = () => {
 
         try {
           const response = await axios.get(endpoint);
-          setImages(response.data[0].images);
-          localStorage.setItem(activeSection, JSON.stringify(response.data[0].images)); // Cache images
+
+          // Log the response to check data structure
+          console.log('API Response:', response.data);
+          if (response.data && response.data.length > 0) {
+            setImages(response.data[0].images); // Set images from the response
+            setProjects(response.data); 
+            console.log(response.data);
+            // Set projects from the response
+            localStorage.setItem(activeSection, JSON.stringify(response.data[0].images)); // Cache images
+          } else {
+            console.log('No data returned for projects');
+            setProjects([]); // Clear projects if no data is returned
+          }
+
           setLoading(false);
         } catch (err) {
-          console.log(err.message);
+          console.log('Error fetching data:', err.message);
           setLoading(false);
         }
       };
@@ -65,7 +78,9 @@ const Service = () => {
         <ul>
           {Object.keys(sectionDetails).map((section) => (
             <li key={section}>
-              <Link onClick={() => setActiveSection(section)}>{sectionDetails[section].title}</Link>
+              <Link onClick={() => setActiveSection(section)}>
+                {sectionDetails[section].title}
+              </Link>
             </li>
           ))}
         </ul>
@@ -75,6 +90,7 @@ const Service = () => {
         <div key={section} className={`${section} ${activeSection === section ? 'active' : ''}`}>
           <p>Rendering pricing estimate for {sectionDetails[section].title.toLowerCase()}</p>
           <div>
+            {/* Check if projects is an array and has content before mapping */}
             <div className="serviceText">
               <h3>Time frame: <span>{sectionDetails[section].timeFrame}</span></h3>
               <h3>Price Range: <span>{sectionDetails[section].priceRange}</span></h3>

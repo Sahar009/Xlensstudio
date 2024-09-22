@@ -10,28 +10,40 @@ const Project3 = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const response = await axios.get("https://xlensvisualization-backend.onrender.com/api/projects/mhqprojects");
-        const projectData = response.data;
-        setProjects(projectData); // Store project data in state
-        localStorage.setItem('mhqProjects', JSON.stringify(projectData)); // Save data to localStorage
-        setLoading(false); // Disable loading spinner
-      } catch (error) {
-        console.error(error.message);
-        setLoading(false); // Disable loading spinner on error
-      }
-    };
+  const fetchMHQProjects = async () => {
+    try {
+      const response = await axios.get("https://xlensvisualization-backend.onrender.com/api/projects/mhqprojects");
+      const projectData = response.data;
 
+      // Check if the fetched data is different from the stored data in localStorage
+      const storedProjects = localStorage.getItem('mhqProjects');
+      if (JSON.stringify(projectData) !== storedProjects) {
+        setProjects(projectData); // Update state with new data
+        localStorage.setItem('mhqProjects', JSON.stringify(projectData)); // Update localStorage
+      }
+
+      setLoading(false); // Disable loading spinner
+    } catch (error) {
+      console.error(error.message);
+      setLoading(false); // Disable loading spinner on error
+    }
+  };
+
+  useEffect(() => {
     // Check if data is already in localStorage
     const storedProjects = localStorage.getItem('mhqProjects');
     if (storedProjects) {
       setProjects(JSON.parse(storedProjects)); // Use localStorage data
       setLoading(false); // Disable loading spinner
     } else {
-      fetchProjects(); // Fetch from API if localStorage is empty
+      fetchMHQProjects(); // Fetch from API if localStorage is empty
     }
+
+    // Set up interval to check for updates every 5 minutes (300000ms)
+    const interval = setInterval(fetchMHQProjects, 300000);
+
+    // Cleanup the interval on component unmount
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -42,6 +54,7 @@ const Project3 = () => {
         projects.map((project, index) => (
           <div key={index} className='project-home'>
             <div className='project-inner'>
+              {/* Display first image with Blurhash */}
               <div className='first-image'>
                 <ImageWithBlurhash
                   blurhash={project.images[0]?.blurhash}
@@ -49,6 +62,8 @@ const Project3 = () => {
                   alt='project'
                 />
               </div>
+
+              {/* Project details */}
               <div className='right-text'>
                 <h1>{project.designName}</h1>
                 <p>{project.location || "Location"}</p>
@@ -58,6 +73,8 @@ const Project3 = () => {
                 </Link>
               </div>
             </div>
+
+            {/* Display additional images (if available) with Blurhash */}
             <div className='second-image'>
               {project.images.slice(1).map((image, imgIndex) => (
                 <div key={imgIndex} className='pic'>

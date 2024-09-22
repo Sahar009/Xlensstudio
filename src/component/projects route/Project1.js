@@ -10,21 +10,27 @@ const Project1 = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    // Function to fetch project data from the backend
-    const fetchProjects = async () => {
-      try {
-        const response = await axios.get("https://xlensvisualization-backend.onrender.com/api/projects/floorplans");
-        const projectData = response.data;
-        setProjects(projectData); // Store project data in state
-        localStorage.setItem('projects', JSON.stringify(projectData)); // Save the data to localStorage
-        setLoading(false); // Disable loading spinner
-      } catch (error) {
-        console.error(error.message);
-        setLoading(false); // Disable loading spinner on error
+  // Function to fetch project data from the backend
+  const fetchProjects = async () => {
+    try {
+      const response = await axios.get("https://xlensvisualization-backend.onrender.com/api/projects/floorplans");
+      const projectData = response.data;
+      const storedProjects = localStorage.getItem('projects');
+      
+      // If the fetched data is different from the stored data, update it
+      if (JSON.stringify(projectData) !== storedProjects) {
+        setProjects(projectData); // Update state with new data
+        localStorage.setItem('projects', JSON.stringify(projectData)); // Update localStorage
       }
-    };
 
+      setLoading(false); // Disable loading spinner
+    } catch (error) {
+      console.error(error.message);
+      setLoading(false); // Disable loading spinner on error
+    }
+  };
+
+  useEffect(() => {
     // Check if data already exists in localStorage
     const storedProjects = localStorage.getItem('projects');
     if (storedProjects) {
@@ -33,6 +39,12 @@ const Project1 = () => {
     } else {
       fetchProjects(); // Fetch data from the API if not in localStorage
     }
+
+    // Set up interval to check for updates every 5 minutes (300000ms)
+    const interval = setInterval(fetchProjects, 300000);
+
+    // Cleanup interval on component unmount
+    return () => clearInterval(interval);
   }, []);
 
   return (

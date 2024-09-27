@@ -6,7 +6,6 @@ import Contact from './contact/Contact';
 import Project from './component/project/Project';
 import About from './About/About';
 import Project1 from './component/projects route/Project1';
-import Project2 from './component/projects route/Project2';
 import Project3 from './component/projects route/Project3';
 import Project4 from './component/projects route/Project4';
 import ServiceSlider from './component/Home/serviceSlider/ServiceSlider';
@@ -20,12 +19,14 @@ import Mhqproject from './dashboard/pages/imageUploader/Mhqproject';
 import Visualization from './dashboard/pages/imageUploader/Visualization';
 import Exterior from './dashboard/pages/imageUploader/Exterior';
 import Interior from './dashboard/pages/imageUploader/Interior';
+import Login from './dashboard/login/Login';
+import Signup from './dashboard/signup/Signup';
 
 const AppContent = () => {
   const location = useLocation();
 
   // Hide Header only on these routes
-  const hideHeaderRoutes = ['/dashboard',  '/interiorDB', '/exteriorDB', '/visualizationDB', '/mhqProjectDB'];
+  const hideHeaderRoutes = ['/dashboard',  '/interiorDB', '/exteriorDB', '/visualizationDB', '/mhqProjectDB', '/login', '/signup'];
   const shouldHideHeader = hideHeaderRoutes.includes(location.pathname);
 
   return (
@@ -51,13 +52,16 @@ const AppContent = () => {
         <Route path='/project' element={<Project />} />
         <Route path='/about' element={<About />} />
 
-        <Route path='/itunu' element={<Project1 />} />
-        <Route path='/interior' element={<Project2 />} />
-        <Route path='/mhq' element={<Project3 />} />
-        <Route path='/visualization3D' element={<Project4 />} />
+        <Route path='/glatt' element={<Project1 />} />
+       
+        <Route path='/itunu' element={<Project3 />} />
+        <Route path='/burums' element={<Project4 />} />
 
         <Route path='/serviceSlider' element={<ServiceSlider />} />
         <Route path='/services' element={<Service />} />
+
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/signup' element={<Signup/>}/>
 
         <Route path='/dashboard' element={
           <Sidebar>

@@ -55,13 +55,15 @@ const Project1 = () => {
         projects.map((project, index) => (
           <div key={index} className='project-home'>
             <div className='project-inner'>
-              {/* Display first image with Blurhash */}
+             
               <div className='first-image'>
-                <ImageWithBlurhash
+              <iframe  src="https://www.youtube.com/embed/NPXyU5KZdBo?si=hYDQ9ffxd4DA-3GJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                {/* <ImageWithBlurhash
                   blurhash={project.images[0]?.blurhash} // Use blurhash from the API
                   src={project.images[0]?.url} // Use image URL from the API
                   alt='project'
-                />
+                /> */}
+                   
               </div>
 
               {/* Project details */}

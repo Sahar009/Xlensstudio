@@ -13,7 +13,7 @@ const Project1 = () => {
   // Function to fetch project data from the backend
   const fetchProjects = async () => {
     try {
-      const response = await axios.get("https://xlensvisualization-backend.onrender.com/api/projects/floorplans");
+      const response = await axios.get("https://xlensvisualization-backend.onrender.com/api/projects/glattEstate");
       const projectData = response.data;
       const storedProjects = localStorage.getItem('projects');
       
@@ -41,7 +41,7 @@ const Project1 = () => {
     }
 
     // Set up interval to check for updates every 5 minutes (300000ms)
-    const interval = setInterval(fetchProjects, 300000);
+    const interval = setInterval(fetchProjects, 30000);
 
     // Cleanup interval on component unmount
     return () => clearInterval(interval);

@@ -13,10 +13,10 @@ const Project4 = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get("https://xlensvisualization-backend.onrender.com/api/projects/visualizations");
+        const response = await axios.get("https://xlensvisualization-backend.onrender.com/api/projects/burums");
         const projectData = response.data;
         setProjects(projectData); // Store project data in state
-        localStorage.setItem('visualizationProjects', JSON.stringify(projectData)); // Save data to localStorage
+        localStorage.setItem('burums', JSON.stringify(projectData)); // Save data to localStorage
         setLoading(false); // Disable loading spinner
       } catch (error) {
         console.error(error.message);
@@ -25,13 +25,18 @@ const Project4 = () => {
     };
 
     // Check if data is already in localStorage
-    const storedProjects = localStorage.getItem('visualizationProjects');
+    const storedProjects = localStorage.getItem('burums');
     if (storedProjects) {
       setProjects(JSON.parse(storedProjects)); // Use localStorage data
       setLoading(false); // Disable loading spinner
     } else {
       fetchProjects(); // Fetch from API if localStorage is empty
     }
+    const interval = setInterval(fetchProjects,30000);
+
+    return () => clearInterval(interval);
+
+
   }, []);
 
   return (

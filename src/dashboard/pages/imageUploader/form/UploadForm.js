@@ -40,7 +40,7 @@ const UploadForm = () => {
 
   const [images, setImages] = useState([]);
 
-  const API = 'https://xlensvisualization-backend.onrender.com/api/floorplans'; // Update this to your API endpoint
+  const API = 'http://localhost:5000/api/projects/itunuDesign'; // Update this to your API endpoint
 
   const handleInput = (e) => {
     const { name, value } = e.target;

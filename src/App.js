@@ -53,7 +53,6 @@ const AppContent = () => {
         <Route path='/about' element={<About />} />
 
         <Route path='/glatt' element={<Project1 />} />
-       
         <Route path='/itunu' element={<Project3 />} />
         <Route path='/burums' element={<Project4 />} />
 

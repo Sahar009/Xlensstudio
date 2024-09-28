@@ -12,7 +12,7 @@ const Project3 = () => {
 
   const fetchMHQProjects = async () => {
     try {
-      const response = await axios.get("https://xlensvisualization-backend.onrender.com/api/projects/mhqprojects");
+      const response = await axios.get("https://xlensvisualization-backend.onrender.com/api/projects/itunuDesign");
       const projectData = response.data;
 
       // Check if the fetched data is different from the stored data in localStorage
@@ -40,7 +40,7 @@ const Project3 = () => {
     }
 
     // Set up interval to check for updates every 5 minutes (300000ms)
-    const interval = setInterval(fetchMHQProjects, 300000);
+    const interval = setInterval(fetchMHQProjects, 30000);
 
     // Cleanup the interval on component unmount
     return () => clearInterval(interval);

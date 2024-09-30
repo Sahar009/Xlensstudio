@@ -41,15 +41,17 @@ const Footer = () => {
   const sendEmail = async (e) => {
     e.preventDefault();
     if (!email) {
+      setEmail('');
       errormessage({ response: { data: { message: "Email is required." } } });
       return;
     }
     
     try {
       await axios.post(API, { email });
-      setEmail(''); // Reset the input field
+      setEmail('');
       successfulmessage();
     } catch (error) {
+      setEmail('');
       errormessage(error);
       console.log(error.message);
     }

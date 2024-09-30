@@ -45,7 +45,7 @@ const Contact = () => {
      message:"",
   })
 
-  const API = 'http://localhost:5000/api/feedback'
+  const API = 'https://xlensvisualization-backend.onrender.com/api/feedback'
 
   const handleInput = (e) => {
     const { name, value } = e.target;

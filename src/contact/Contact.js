@@ -65,6 +65,11 @@ const Contact = () => {
       successfulmessage()
     
     } catch (error) {
+      setFormdata({
+        fullname:"",
+        email:"",
+        message:"",
+      });
      errormessage()
       console.log(error.message);
     }
